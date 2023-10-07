@@ -19,7 +19,7 @@
   margin: 10px;
   border-radius: 10px;
   box-shadow: 3px 3px 3px rgb(192, 192, 192);
-  min-height: 900px;
+  min-height: 820px;
   padding: 5px;
 }
 .numbersDivParent {
@@ -161,4 +161,12 @@
   color: #003278;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 19px;
+}
+@media screen and (max-width: 768px) {
+  .numbersDiv {
+    position: relative; /* Change the position back to relative */
+    right: auto; /* Reset the right position */
+    width: 100%; /* Make it full width */
+    /* Adjust the margin as needed */
+  }
 }
