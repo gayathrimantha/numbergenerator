@@ -24,7 +24,7 @@
   position: absolute;
   right: 2px;
   height: 800px;
-  width: 68%;
+  width: 88%;
   border: 1px solid rgb(233, 233, 233);
   margin-top: 5px;
 }
@@ -36,20 +36,22 @@
 }
 .boxStyle {
   height: 75px;
-  width: 75px;
-  border: 1px solid rgb(193, 193, 193);
-  margin: 5px 15px;
+  width: 125px;
+  border: 2px solid rgb(193, 193, 193);
+  margin: 5px 5px;
   justify-content: center;
   align-items: center;
   display: flex;
   border-radius: 10px;
+  background-color: #f4f4f4;
 }
 .numberStyle {
-  font-size: 18px;
-  color: rgb(44, 44, 44);
+  font-size: 2.2rem;
+  color: #bbbbbb;
+  font-weight: 700;
 }
 .settingsContent {
-  width: 28%;
+  width: 10%;
   height: 800px;
   position: absolute;
   left: 17px;
