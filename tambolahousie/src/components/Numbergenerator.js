@@ -14,9 +14,14 @@ const Numbergenerator = () => {
         <div className="numbersDiv">
           <div className="numbersDisplay">
             {numbersArray.map((number) => (
-              <div className="boxStyle">{number}</div>
+              <div className="boxStyle">
+                <div className="numberStyle">{number}</div>
+              </div>
             ))}
           </div>
+        </div>
+        <div className="settingsContent">
+
         </div>
       </div>
     </div>

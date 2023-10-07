@@ -9,11 +9,12 @@
 .mainContainer {
   border: 1px solid rgb(210, 210, 210);
   height: auto;
-  width: 99%;
+  width: 98%;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 3px 3px 3px rgb(192, 192, 192);
   min-height: 900px;
+  padding: 5px;
 }
 .numbersDivParent {
   position: relative;
@@ -24,19 +25,34 @@
   right: 2px;
   height: 800px;
   width: 68%;
-  border: 1px solid black;
+  border: 1px solid rgb(233, 233, 233);
   margin-top: 5px;
 }
 .numbersDisplay {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 3px;
+  margin-left: 30px;
 }
 .boxStyle {
   height: 75px;
   width: 75px;
-  border: 1px solid black;
+  border: 1px solid rgb(193, 193, 193);
   margin: 5px 15px;
   justify-content: center;
   align-items: center;
   display: flex;
+  border-radius: 10px;
+}
+.numberStyle {
+  font-size: 18px;
+  color: rgb(44, 44, 44);
+}
+.settingsContent {
+  width: 28%;
+  height: 800px;
+  position: absolute;
+  left: 17px;
+  border: 1px solid rgb(233, 233, 233);
+  margin-top: 5px;
 }
