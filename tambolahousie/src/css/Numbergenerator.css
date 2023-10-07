@@ -47,9 +47,34 @@
   border-radius: 10px;
   background-color: #f4f4f4;
 }
+.boxStyleGenerated {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #28a745;
+  margin: 5px 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  background-color: #e4f4e7;
+}
 .numberStyle {
   font-size: 2.2rem;
   color: #bbbbbb;
+  font-weight: 700;
+}
+.numberStyleCurrent {
+  font-size: 2.2rem;
+  color: rgb(217, 131, 32);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13px;
+}
+.numberStyleGenerated {
+  font-size: 2.2rem;
+  color: #28a745;
   font-weight: 700;
 }
 .settingsContent {
@@ -71,6 +96,17 @@
   background-color: #f4f4f4;
   cursor: pointer;
 }
+.generatedNumber {
+  height: 70px;
+  width: 70px;
+  background-color: gray;
+  margin-left: 50px;
+  margin-top: 15px;
+  border-radius: 40px;
+  border: 2px solid rgb(217, 131, 32);
+  background-color: #ffead7;
+  cursor: pointer;
+}
 .iconStyle {
   margin-top: 20px;
   margin-left: 27px;
@@ -90,4 +126,19 @@
   margin-top: 23px;
   margin-left: 30px;
   color: rgb(84, 147, 255);
+}
+.playTextStyle {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 70px;
+  margin-top: 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.hoveredPlayTextStyle {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 70px;
+  margin-top: 20px;
+  font-size: 19px;
+  color: rgb(84, 147, 255);
+  cursor: pointer;
 }
