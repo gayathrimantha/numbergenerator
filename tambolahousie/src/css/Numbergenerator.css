@@ -33,7 +33,6 @@
   align-items: center;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  margin-top: 15px;
   padding: 5px;
 }
 .boxStyle {
@@ -115,17 +114,17 @@
 .hoveredIcon {
   height: 80px;
   width: 80px;
-  background-color: rgb(212, 228, 255);
+  background-color: rgba(0, 123, 255, 0.12549019607843137);
   margin-left: 45px;
   margin-top: 45px;
   border-radius: 40px;
-  border: 2px solid rgb(84, 147, 255);
+  border: 2px solid #003278;
   cursor: pointer;
 }
 .hoveredIconStyle {
   margin-top: 23px;
   margin-left: 30px;
-  color: rgb(84, 147, 255);
+  color: #003278;
 }
 .playTextStyle {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -139,6 +138,24 @@
   margin-left: 70px;
   margin-top: 20px;
   font-size: 19px;
-  color: rgb(84, 147, 255);
+  color: #003278;
   cursor: pointer;
+}
+.newGameButton {
+  width: 120px;
+  background-color: #28a745;
+  height: 30px;
+  margin-left: 29px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: rgba(0, 123, 255, 0.12549019607843137);
+}
+.newGameText {
+  display: flex;
+  justify-content: center;
+  padding-top: 3px;
+  color: #003278;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 19px;
 }

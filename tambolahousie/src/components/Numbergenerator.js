@@ -71,7 +71,7 @@ const Numbergenerator = () => {
   return (
     <div className="mainContainer">
       <div className="headerTitle">
-        NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO
+        <div> NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO</div>
       </div>
       <div className="numbersDivParent">
         <div className="numbersDiv">
@@ -115,7 +115,9 @@ const Numbergenerator = () => {
         >
           PLAY
         </div>
-        <button onClick={handleNewGame}>New Game</button>
+        <div onClick={handleNewGame} className="newGameButton">
+          <div className="newGameText">New Game</div>
+        </div>
         {currentNumber && (
           <div className="generatedNumber">
             <div className="numberStyleCurrent"> {currentNumber}</div>
