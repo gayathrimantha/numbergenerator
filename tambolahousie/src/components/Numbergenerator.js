@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Numbergenerator.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +38,34 @@ const Numbergenerator = () => {
       setCurrentNumber(selectedNumber);
       setNumbersArray(updatedNumbersArray);
       setGeneratedNumbers(updatedGeneratedNumbers);
+
+      // Save generatedNumbers to localStorage
+      localStorage.setItem(
+        "generatedNumbers",
+        JSON.stringify(Array.from(updatedGeneratedNumbers))
+      );
     }
+  };
+
+  // Retrieve generatedNumbers from localStorage on component mount
+  useEffect(() => {
+    const savedGeneratedNumbers = localStorage.getItem("generatedNumbers");
+    if (savedGeneratedNumbers) {
+      const parsedGeneratedNumbers = new Set(JSON.parse(savedGeneratedNumbers));
+      setGeneratedNumbers(parsedGeneratedNumbers);
+    }
+  }, []);
+
+  const handleNewGame = () => {
+    // Reset the generatedNumbers set and currentNumber
+    setGeneratedNumbers(new Set());
+    setCurrentNumber(null);
+
+    // Reset numbersArray to contain all numbers
+    setNumbersArray(Array.from({ length: 90 }, (_, index) => index + 1));
+
+    // Clear the generatedNumbers from localStorage
+    localStorage.removeItem("generatedNumbers");
   };
 
   return (
@@ -88,6 +115,7 @@ const Numbergenerator = () => {
         >
           PLAY
         </div>
+        <button onClick={handleNewGame}>New Game</button>
         {currentNumber && (
           <div className="generatedNumber">
             <div className="numberStyleCurrent"> {currentNumber}</div>
