@@ -8,6 +8,9 @@ const Numbergenerator = () => {
   const [numbersArray, setNumbersArray] = useState(
     Array.from({ length: 90 }, (_, index) => index + 1)
   );
+  const [numbersArrayNEW, setNumbersArrayNEW] = useState(
+    Array.from({ length: 90 }, (_, index) => index + 1)
+  );
   const [generatedNumbers, setGeneratedNumbers] = useState(new Set());
   const [currentNumber, setCurrentNumber] = useState(null);
 
@@ -29,8 +32,12 @@ const Numbergenerator = () => {
       const updatedNumbersArray = [...numbersArray];
       updatedNumbersArray.splice(randomIndex, 1);
 
+      const updatedGeneratedNumbers = new Set(generatedNumbers);
+      updatedGeneratedNumbers.add(selectedNumber);
+
       setCurrentNumber(selectedNumber);
       setNumbersArray(updatedNumbersArray);
+      setGeneratedNumbers(updatedGeneratedNumbers);
     }
   };
 
@@ -42,7 +49,7 @@ const Numbergenerator = () => {
       <div className="numbersDivParent">
         <div className="numbersDiv">
           <div className="numbersDisplay">
-            {numbersArray.map((number) => (
+            {numbersArrayNEW.map((number) => (
               <div
                 className={
                   generatedNumbers.has(number)
