@@ -5,6 +5,12 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  height: 40px;
+  width: auto;
+  background-color: rgba(0, 123, 255, 0.12549019607843137);
+}
+.headerTitleText {
+  color: #003278;
 }
 .mainContainer {
   border: 1px solid rgb(210, 210, 210);
@@ -18,15 +24,12 @@
 }
 .numbersDivParent {
   position: relative;
-  margin-top: 7px;
 }
 .numbersDiv {
   position: absolute;
   right: 2px;
   height: 800px;
   width: 88%;
-
-  margin-top: 5px;
 }
 .numbersDisplay {
   grid-gap: 20px;
@@ -38,7 +41,7 @@
 .boxStyle {
   height: 100%;
   width: 100%;
-  border: 2px solid rgb(193, 193, 193);
+  border: 1px solid rgb(193, 193, 193);
   margin: 5px 5px;
   justify-content: center;
   align-items: center;
@@ -49,7 +52,7 @@
 .boxStyleGenerated {
   height: 100%;
   width: 100%;
-  border: 2px solid #28a745;
+  border: 3px solid #28a745;
   margin: 5px 5px;
   justify-content: center;
   align-items: center;
@@ -102,7 +105,7 @@
   margin-left: 50px;
   margin-top: 15px;
   border-radius: 40px;
-  border: 2px solid rgb(217, 131, 32);
+  border: 3px solid rgb(217, 131, 32);
   background-color: #ffead7;
   cursor: pointer;
 }
@@ -118,7 +121,7 @@
   margin-left: 45px;
   margin-top: 45px;
   border-radius: 40px;
-  border: 2px solid #003278;
+  border: 3px solid #003278;
   cursor: pointer;
 }
 .hoveredIconStyle {

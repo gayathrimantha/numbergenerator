@@ -71,7 +71,9 @@ const Numbergenerator = () => {
   return (
     <div className="mainContainer">
       <div className="headerTitle">
-        <div> NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO</div>
+        <div className="headerTitleText">
+          NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO
+        </div>
       </div>
       <div className="numbersDivParent">
         <div className="numbersDiv">
