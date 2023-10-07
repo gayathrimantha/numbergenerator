@@ -17,12 +17,26 @@
 }
 .numbersDivParent {
   position: relative;
+  margin-top: 7px;
 }
 .numbersDiv {
   position: absolute;
   right: 2px;
   height: 800px;
-  width: 70%;
+  width: 68%;
   border: 1px solid black;
   margin-top: 5px;
+}
+.numbersDisplay {
+  display: flex;
+  flex-wrap: wrap;
+}
+.boxStyle {
+  height: 75px;
+  width: 75px;
+  border: 1px solid black;
+  margin: 5px 15px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }

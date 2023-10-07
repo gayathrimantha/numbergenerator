@@ -2,6 +2,9 @@ import React from "react";
 import "../css/Numbergenerator.css";
 
 const Numbergenerator = () => {
+  const numbersArray = Array.from({ length: 90 }, (_, index) => index + 1);
+  console.log(numbersArray);
+
   return (
     <div className="mainContainer">
       <div className="headerTitle">
@@ -9,7 +12,11 @@ const Numbergenerator = () => {
       </div>
       <div className="numbersDivParent">
         <div className="numbersDiv">
-            
+          <div className="numbersDisplay">
+            {numbersArray.map((number) => (
+              <div className="boxStyle">{number}</div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
