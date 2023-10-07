@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Numbergenerator.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const Numbergenerator = () => {
+  const [isIconHovered, setIsIconHovered] = useState(false);
   const numbersArray = Array.from({ length: 90 }, (_, index) => index + 1);
   console.log(numbersArray);
+
+  const handleMouseEnter = () => {
+    setIsIconHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsIconHovered(false);
+  };
 
   return (
     <div className="mainContainer">
@@ -21,7 +32,17 @@ const Numbergenerator = () => {
           </div>
         </div>
         <div className="settingsContent">
-
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={isIconHovered ? "hoveredIcon" : "playButton"}
+          >
+            <FontAwesomeIcon
+              icon={faPlay}
+              className={isIconHovered ? "hoveredIconStyle" : "iconStyle"}
+              size="2xl"
+            />
+          </div>
         </div>
       </div>
     </div>

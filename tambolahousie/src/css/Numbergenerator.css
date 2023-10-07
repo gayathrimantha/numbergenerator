@@ -25,18 +25,20 @@
   right: 2px;
   height: 800px;
   width: 88%;
-  border: 1px solid rgb(233, 233, 233);
+
   margin-top: 5px;
 }
 .numbersDisplay {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 3px;
-  margin-left: 30px;
+  grid-gap: 20px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  margin-top: 15px;
+  padding: 5px;
 }
 .boxStyle {
-  height: 75px;
-  width: 125px;
+  height: 100%;
+  width: 100%;
   border: 2px solid rgb(193, 193, 193);
   margin: 5px 5px;
   justify-content: center;
@@ -57,4 +59,35 @@
   left: 17px;
   border: 1px solid rgb(233, 233, 233);
   margin-top: 5px;
+}
+.playButton {
+  height: 70px;
+  width: 70px;
+  background-color: gray;
+  margin-left: 50px;
+  margin-top: 45px;
+  border-radius: 40px;
+  border: 2px solid rgb(193, 193, 193);
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+.iconStyle {
+  margin-top: 20px;
+  margin-left: 27px;
+  color: gray;
+}
+.hoveredIcon {
+  height: 80px;
+  width: 80px;
+  background-color: rgb(212, 228, 255);
+  margin-left: 45px;
+  margin-top: 45px;
+  border-radius: 40px;
+  border: 2px solid rgb(84, 147, 255);
+  cursor: pointer;
+}
+.hoveredIconStyle {
+  margin-top: 23px;
+  margin-left: 30px;
+  color: rgb(84, 147, 255);
 }
