@@ -44,6 +44,10 @@ const Numbergenerator = () => {
         "generatedNumbers",
         JSON.stringify(Array.from(updatedGeneratedNumbers))
       );
+
+      const msg = new SpeechSynthesisUtterance();
+      msg.text = selectedNumber;
+      window.speechSynthesis.speak(msg);
     }
   };
 
