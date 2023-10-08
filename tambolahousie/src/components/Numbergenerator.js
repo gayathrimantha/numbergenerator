@@ -115,7 +115,7 @@ const Numbergenerator = () => {
         <div
           className={isIconHovered ? "hoveredPlayTextStyle" : "playTextStyle"}
         >
-          PLAY
+          GENERATE NUMBER
         </div>
         <div onClick={handleNewGame} className="newGameButton">
           <div className="newGameText">New Game</div>
