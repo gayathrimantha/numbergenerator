@@ -203,8 +203,18 @@
     grid-gap: 2px;
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 0.4fr);
     padding: 2px;
+  }
+  .mainContainer {
+    border: 1px solid rgb(210, 210, 210);
+    height: auto;
+    width: fit-content;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(192, 192, 192);
+
+    padding: 5px;
   }
 }
 .generatedNumberArray {
