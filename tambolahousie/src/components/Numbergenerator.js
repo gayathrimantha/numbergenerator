@@ -13,6 +13,13 @@ const Numbergenerator = () => {
   );
   const [generatedNumbers, setGeneratedNumbers] = useState(new Set());
   const [currentNumber, setCurrentNumber] = useState(null);
+  const [removedNumbersArray, setRemovedNumbersArray] = useState([]);
+  const [removedNumbersIndex, setRemovedNumbersIndex] = useState(0);
+
+  useEffect(() => {
+    // Whenever removedNumbersArray changes, reset the index
+    setRemovedNumbersIndex(0);
+  }, [removedNumbersArray]);
 
   const handleMouseEnter = () => {
     setIsIconHovered(true);
@@ -31,6 +38,9 @@ const Numbergenerator = () => {
       const selectedNumber = numbersArray[randomIndex];
       const updatedNumbersArray = [...numbersArray];
       updatedNumbersArray.splice(randomIndex, 1);
+      const removedNumbersArrayNew = [];
+      removedNumbersArrayNew.push(selectedNumber);
+      setRemovedNumbersArray(removedNumbersArrayNew);
 
       const updatedGeneratedNumbers = new Set(generatedNumbers);
       updatedGeneratedNumbers.add(selectedNumber);
@@ -45,12 +55,32 @@ const Numbergenerator = () => {
         JSON.stringify(Array.from(updatedGeneratedNumbers))
       );
 
+      function convertNumberToSpeechFormat(number) {
+        if (number >= 10 && number <= 90) {
+          const tensDigit = Math.floor(number / 10);
+          const onesDigit = number % 10;
+
+          return [tensDigit, onesDigit, number].join(",");
+        } else {
+          return number.toString();
+        }
+      }
+      const formattedNumber = convertNumberToSpeechFormat(selectedNumber);
+
       const msg = new SpeechSynthesisUtterance();
-      msg.text = selectedNumber;
+      msg.text = formattedNumber;
+      msg.rate = 0.8;
       window.speechSynthesis.speak(msg);
     }
   };
-
+  const getNextRemovedNumber = () => {
+    if (removedNumbersIndex < removedNumbersArray.length) {
+      const nextNumber = removedNumbersArray[removedNumbersIndex];
+      setRemovedNumbersIndex(removedNumbersIndex + 1);
+      return nextNumber;
+    }
+    return null;
+  };
   // Retrieve generatedNumbers from localStorage on component mount
   useEffect(() => {
     const savedGeneratedNumbers = localStorage.getItem("generatedNumbers");
@@ -72,8 +102,16 @@ const Numbergenerator = () => {
     localStorage.removeItem("generatedNumbers");
   };
 
+  const handleSpacebarPress = (event) => {
+    if (event.key === " " || event.key === "Spacebar") {
+      event.preventDefault();
+      // Call your function here
+      generateRandomNumber();
+    }
+  };
+
   return (
-    <div className="mainContainer">
+    <div className="mainContainer" onKeyDown={handleSpacebarPress} tabIndex={0}>
       <div className="headerTitle">
         <div className="headerTitleText">
           NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO
