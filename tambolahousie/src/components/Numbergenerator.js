@@ -38,9 +38,6 @@ const Numbergenerator = () => {
       const selectedNumber = numbersArray[randomIndex];
       const updatedNumbersArray = [...numbersArray];
       updatedNumbersArray.splice(randomIndex, 1);
-      const removedNumbersArrayNew = [];
-      removedNumbersArrayNew.push(selectedNumber);
-      setRemovedNumbersArray(removedNumbersArrayNew);
 
       const updatedGeneratedNumbers = new Set(generatedNumbers);
       updatedGeneratedNumbers.add(selectedNumber);
@@ -62,7 +59,7 @@ const Numbergenerator = () => {
 
           return [tensDigit, onesDigit, number].join(",");
         } else {
-          return number.toString();
+          return ["single number", number].join(",");
         }
       }
       const formattedNumber = convertNumberToSpeechFormat(selectedNumber);
@@ -73,14 +70,7 @@ const Numbergenerator = () => {
       window.speechSynthesis.speak(msg);
     }
   };
-  const getNextRemovedNumber = () => {
-    if (removedNumbersIndex < removedNumbersArray.length) {
-      const nextNumber = removedNumbersArray[removedNumbersIndex];
-      setRemovedNumbersIndex(removedNumbersIndex + 1);
-      return nextNumber;
-    }
-    return null;
-  };
+
   // Retrieve generatedNumbers from localStorage on component mount
   useEffect(() => {
     const savedGeneratedNumbers = localStorage.getItem("generatedNumbers");
@@ -111,64 +101,73 @@ const Numbergenerator = () => {
   };
 
   return (
-    <div className="mainContainer" onKeyDown={handleSpacebarPress} tabIndex={0}>
-      <div className="headerTitle">
-        <div className="headerTitleText">
-          NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO
+    <>
+      <div
+        className="mainContainer"
+        onKeyDown={handleSpacebarPress}
+        tabIndex={0}
+      >
+        <div className="headerTitle">
+          <div className="headerTitleText">
+            NUMBER GENERATOR FOR TAMBOLA, HOUSIE AND BINGO
+          </div>
         </div>
-      </div>
-      <div className="numbersDivParent">
-        <div className="numbersDiv">
-          <div className="numbersDisplay">
-            {numbersArrayNEW.map((number) => (
-              <div
-                className={
-                  generatedNumbers.has(number)
-                    ? "boxStyleGenerated"
-                    : "boxStyle"
-                }
-                key={number}
-              >
+        <div className="numbersDivParent">
+          <div className="numbersDiv">
+            <div className="numbersDisplay">
+              {numbersArrayNEW.map((number) => (
                 <div
                   className={
                     generatedNumbers.has(number)
-                      ? "numberStyleGenerated"
-                      : "numberStyle"
+                      ? "boxStyleGenerated"
+                      : "boxStyle"
                   }
+                  key={number}
                 >
-                  {number}
+                  <div
+                    className={
+                      generatedNumbers.has(number)
+                        ? "numberStyleGenerated"
+                        : "numberStyle"
+                    }
+                  >
+                    {number}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={isIconHovered ? "hoveredIcon" : "playButton"}
-          onClick={generateRandomNumber}
-        >
-          <FontAwesomeIcon
-            icon={faPlay}
-            className={isIconHovered ? "hoveredIconStyle" : "iconStyle"}
-            size="2xl"
-          />
-        </div>
-        <div
-          className={isIconHovered ? "hoveredPlayTextStyle" : "playTextStyle"}
-        >
-          GENERATE NUMBER
-        </div>
-        <div onClick={handleNewGame} className="newGameButton">
-          <div className="newGameText">New Game</div>
-        </div>
-        {currentNumber && (
-          <div className="generatedNumber">
-            <div className="numberStyleCurrent"> {currentNumber}</div>
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={isIconHovered ? "hoveredIcon" : "playButton"}
+            onClick={generateRandomNumber}
+          >
+            <FontAwesomeIcon
+              icon={faPlay}
+              className={isIconHovered ? "hoveredIconStyle" : "iconStyle"}
+              size="2xl"
+            />
           </div>
-        )}
+          <div
+            className={isIconHovered ? "hoveredPlayTextStyle" : "playTextStyle"}
+          >
+            GENERATE NUMBER
+          </div>
+          <div onClick={handleNewGame} className="newGameButton">
+            <div className="newGameText">New Game</div>
+          </div>
+          {currentNumber && (
+            <div className="generatedNumber">
+              <div className="numberStyleCurrent"> {currentNumber}</div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      <div className="generatedNumberArray">
+        {Array.from(generatedNumbers).join(", ")}
+      </div>
+    </>
   );
 };
 
