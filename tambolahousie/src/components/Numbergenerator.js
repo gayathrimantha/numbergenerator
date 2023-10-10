@@ -15,6 +15,11 @@ const Numbergenerator = () => {
   const [currentNumber, setCurrentNumber] = useState(null);
   const [removedNumbersArray, setRemovedNumbersArray] = useState([]);
   const [removedNumbersIndex, setRemovedNumbersIndex] = useState(0);
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleButton = () => {
+    setIsOn(!isOn);
+  };
 
   useEffect(() => {
     // Whenever removedNumbersArray changes, reset the index
@@ -67,7 +72,9 @@ const Numbergenerator = () => {
       const msg = new SpeechSynthesisUtterance();
       msg.text = formattedNumber;
       msg.rate = 0.8;
-      window.speechSynthesis.speak(msg);
+      {
+        isOn ? window.speechSynthesis.speak(msg) : <></>;
+      }
     }
   };
 
@@ -157,6 +164,13 @@ const Numbergenerator = () => {
           <div onClick={handleNewGame} className="newGameButton">
             <div className="newGameText">New Game</div>
           </div>
+          <div className="soundText">Sound :</div>
+          <button
+            onClick={toggleButton}
+            className={`toggle-button ${isOn ? "on" : ""}`}
+          >
+            {isOn ? "ON" : "OFF"}
+          </button>
           {currentNumber && (
             <div className="generatedNumber">
               <div className="numberStyleCurrent"> {currentNumber}</div>
