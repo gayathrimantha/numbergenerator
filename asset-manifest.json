@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/numbergenerator/static/css/main.130d6afb.css",
+    "main.js": "/numbergenerator/static/js/main.0a216492.js",
+    "static/js/787.f6fdae83.chunk.js": "/numbergenerator/static/js/787.f6fdae83.chunk.js",
+    "static/media/logo.svg": "/numbergenerator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/numbergenerator/index.html",
+    "main.130d6afb.css.map": "/numbergenerator/static/css/main.130d6afb.css.map",
+    "main.0a216492.js.map": "/numbergenerator/static/js/main.0a216492.js.map",
+    "787.f6fdae83.chunk.js.map": "/numbergenerator/static/js/787.f6fdae83.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.130d6afb.css",
+    "static/js/main.0a216492.js"
+  ]
+}
